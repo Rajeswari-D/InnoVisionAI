@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovision AI</title>
+</head>
+<body>
+    <h1>Submit Your Startup Idea</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submitted Ideas</h2>
+    <ul>
+        {% for idea in ideas %}
+            <li>{{ idea.title }} - {{ idea.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
